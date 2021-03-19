@@ -1,21 +1,24 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 `;
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
   margin: auto;
-  padding: 1em 0;
+  padding: 1em 0.75em;
 
   @media(min-width: 725px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
 
+  @media(min-width: 1024px) {
+    padding: 2rem 6rem;
   }
 `;
 export const Logo = styled.img`

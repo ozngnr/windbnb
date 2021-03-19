@@ -30,7 +30,7 @@ Header.Search = function HeaderSearch({...restProps}) {
       <SearchInput placeholder="Destination"/>
       <SearchInput type="number" placeholder="Add Guests"/>
       <SearchIcon>
-        <span className="material-icons">search</span>
+        <span className="material-icons-round">search</span>
       </SearchIcon>
     </Search>
   )

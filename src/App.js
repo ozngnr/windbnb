@@ -1,9 +1,10 @@
 import React from 'react';
-import HeaderContainer from './containers/headerContainer';
+import Home from './pages/home';
+
 
 function App() {
   return (
-    <HeaderContainer />
+    <Home/>
   );
 }
 
