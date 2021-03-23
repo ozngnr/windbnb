@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Container, 
   Wrapper, 
   Logo, 
-  Search, 
-  SearchInput, 
-  SearchIcon
+  SearchBar, 
+  Label,
+  Input,
+  SearchInput,
+  SearchGuest, 
+  SearchIcon,
 } from "./styles/header"
 
 const Header = ({children, ...restProps}) => {
@@ -24,14 +27,24 @@ Header.Logo = function HeaderLogo({...restProps}) {
   return <Logo {...restProps}/> 
 }
 
-Header.Search = function HeaderSearch({...restProps}) {
+Header.Search = function HeaderSearch({direction, destination, setDestination, ...restProps}) {
+  const [searchActive, setSearchActive] = useState(false)
+  
   return (
-    <Search {...restProps}>
-      <SearchInput placeholder="Destination"/>
-      <SearchInput type="number" placeholder="Add Guests"/>
-      <SearchIcon>
+    <SearchBar direction={direction} {...restProps}>
+      <SearchInput>
+        <Label>{searchActive && "Location"}</Label>
+        <Input 
+          placeholder="Destination"
+          value={destination} 
+          onChange={e => setDestination(e.target.value)} 
+        />
+      </SearchInput>
+      <SearchGuest><Label>{searchActive && 'Guests'}</Label>Add guests</SearchGuest>
+      <SearchIcon onClick={() => setSearchActive(!searchActive)}>
         <span className="material-icons-round">search</span>
       </SearchIcon>
-    </Search>
+    </SearchBar>
   )
 }
+

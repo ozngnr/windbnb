@@ -6,6 +6,7 @@ export const Container = styled.div`
 `;
 export const Wrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   margin: auto;
@@ -30,27 +31,47 @@ export const Logo = styled.img`
   }
 `;
 
-export const Search = styled.div`
+export const SearchBar = styled.div`
   display: flex;
-  align-self: center;
-  max-width: 300px;
+  flex-direction: ${({direction}) => direction === "column" ? "column" : "row"};
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
+  
 `;
 
-export const SearchInput = styled.input`
-  font-family: "Mulish", sans-serif;
-  font-size: 0.825em;
-  min-width:0;
-  padding: 1em 1.5em;
-  border: 1px solid transparent;
-  border-radius: 16px 0 0 16px;
+export const SearchInput = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 16px;
 
-  &:last-of-type {
-    border: 1px #F2F2F2;
-    border-style: none solid;
-    border-radius: 0;
+  &::after {
+    content:"";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: #F2F2F2;
+    right: 0;
   }
+`;
+
+export const Label = styled.span`
+  display: block;
+  font-weight: 800;
+  font-size: 9px;
+  line-height: 1.9;
+  text-transform: uppercase;
+  color: #333333;
+`;
+
+export const Input = styled.input`
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  padding: 0;
+  line-height: 18px;
+  border: 0;
 
   &::placeholder {
     color: #BDBDBD;
@@ -58,15 +79,41 @@ export const SearchInput = styled.input`
 
   &:focus {
     outline: none;
-    border: 1px solid red;
+    border-bottom: 1px solid rgba(235, 87, 87, 0.9);
   }
 `;
 
-export const SearchIcon = styled.div`
-  display:flex;
-  justify-content: center;
-  align-items:center;
-  padding: 16px;
+export const SearchIcon = styled.button`
+  border:0;
+  padding: 18px 16px;
+  background: transparent;
   color: rgba(235, 87, 87, 0.9);
   cursor:pointer;
+
+  span {
+    display:block;
+    line-height: 16px;
+  }
+`;
+
+export const SearchGuest = styled.button`
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 18px 16px;
+  border:0;
+  border-right: 1px solid #F2F2F2;
+  background: transparent;
+  color: #BDBDBD;
+  text-align: left;
+
+
+`;
+
+export const SearchMenu = styled.div`
+  position: fixed;
+  background: white;
+  width: 100%;
+  padding: 3rem;
+  top:0;
 `;

@@ -8,9 +8,8 @@ export const Group = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 2em;
   max-width: 1440px;
-  padding: 0 .75em;
-  margin: 2.5em auto;
-  border: 1px solid blue;
+  padding: 0 .75em 2em .75em; 
+  margin: 0 auto;
 
   @media(min-width: 1024px) {
     padding: 0 6rem;
